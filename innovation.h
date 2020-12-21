@@ -3,62 +3,60 @@
 
 namespace NEAT {
 
-	enum innovtype {
-		NEWNODE = 0,
-		NEWLINK = 1
-	};
-
-	// ------------------------------------------------------------
-	// This Innovation class serves as a way to record innovations
-	//   specifically, so that an innovation in one genome can be 
-	//   compared with other innovations in the same epoch, and if they
-	//   are the same innovation, they can both be assigned the same
-	//   innovation number.
+    // ------------------------------------------------------------
+    // This Innovation class serves as a way to record innovations
+    //   specifically, so that an innovation in one genome can be 
+    //   compared with other innovations in the same epoch, and if they
+    //   are the same innovation, they can both be assigned the same
+    //   innovation number.
     //
-	//  This class can encode innovations that represent a new link
-	//  forming, or a new node being added.  In each case, two 
-	//  nodes fully specify the innovation and where it must have
-	//  occured.  (Between them)                                     
-	// ------------------------------------------------------------ 
-	class Innovation {
-	private:
-		enum innovtype {
-			NEWNODE = 0,
-			NEWLINK = 1
-		};
+    //  This class can encode innovations that represent a new link
+    //  forming, or a new node being added.  In each case, two 
+    //  nodes fully specify the innovation and where it must have
+    //  occured.  (Between them)                                     
+    // ------------------------------------------------------------ 
+    class Innovation {
 
-		//typedef int innovtype;
-		//const int NEWNODE = 0;
-		//const int NEWLINK = 1;
+        friend class Genome;
 
-	public:
-		innovtype innovation_type;  //Either NEWNODE or NEWLINK
+        private:
+            enum innovtype {
+                NEWNODE = 0,
+                NEWLINK = 1
+            };
 
-		int node_in_id;     //Two nodes specify where the innovation took place
-		int node_out_id;
+            //typedef int innovtype;
+            //const int NEWNODE = 0;
+            //const int NEWLINK = 1;
 
-		double innovation_num1;  //The number assigned to the innovation
-		double innovation_num2;  // If this is a new node innovation, then there are 2 innovations (links) added for the new node 
+        public:
+            innovtype innovation_type;  //Either NEWNODE or NEWLINK
 
-		double new_weight;   //  If a link is added, this is its weight 
-		int new_traitnum; // If a link is added, this is its connected trait 
+            int node_in_id;     //Two nodes specify where the innovation took place
+            int node_out_id;
 
-		int newnode_id;  // If a new node was created, this is its node_id 
+            double innovation_num1;  //The number assigned to the innovation
+            double innovation_num2;  // If this is a new node innovation, then there are 2 innovations (links) added for the new node 
 
-		double old_innov_num;  // If a new node was created, this is the innovnum of the gene's link it is being stuck inside 
+            double new_weight;   //  If a link is added, this is its weight 
+            int new_traitnum; // If a link is added, this is its connected trait 
 
-		bool recur_flag;
+            int newnode_id;  // If a new node was created, this is its node_id 
 
-		//Constructor for the new node case
-		Innovation(int nin,int nout,double num1,double num2,int newid,double oldinnov);
+            double old_innov_num;  // If a new node was created, this is the innovnum of the gene's link it is being stuck inside 
 
-		//Constructor for new link case
-		Innovation(int nin,int nout,double num1,double w,int t);
+            bool recur_flag;
 
-		//Constructor for a recur link
-		Innovation(int nin,int nout,double num1,double w,int t,bool recur);
+            //Constructor for the new node case
+            Innovation(int nin,int nout,double num1,double num2,int newid,double oldinnov);
 
-	};
+            //Constructor for new link case
+            Innovation(int nin,int nout,double num1,double w,int t);
+
+            //Constructor for a recur link
+            Innovation(int nin,int nout,double num1,double w,int t,bool recur);
+
+    };
 
 } // namespace NEAT
 

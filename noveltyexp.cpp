@@ -576,14 +576,6 @@ double mazesim(Network* net, vector< vector<float> > &dc, data_record *record)
 	dc.push_back(data);
 	dc[0].reserve(param*2+20);
 	
-	/*ENABLE FOR ADDT'L INFO STUDIES*/
-	/*
-	if(param>0)
-	{
-		stepsize=timesteps/param;
-	}
-	/* */
-	
 	for(int i=0;i<timesteps;i++)
 	{
 		fitness+=mazesimStep(newenv,net,dc);
