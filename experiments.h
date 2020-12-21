@@ -81,24 +81,24 @@ private:
   void rk4(double f, double y[], double dydx[], double yout[]);
   bool outsideBounds(); 
 
-  const static int NUM_INPUTS=7;
-  const static double MUP = 0.000002;
-  const static double MUC = 0.0005;
-  const static double GRAVITY= -9.8;
-  const static double MASSCART= 1.0;
-  const static double MASSPOLE_1= 0.1;
+  static const int NUM_INPUTS=7;
+  static constexpr double MUP = 0.000002;
+  static constexpr double MUC = 0.0005;
+  static constexpr double GRAVITY= -9.8;
+  static constexpr double MASSCART= 1.0;
+  static constexpr double MASSPOLE_1= 0.1;
 
-  const static double LENGTH_1= 0.5;		  /* actually half the pole's length */
+  static constexpr double LENGTH_1= 0.5;		  /* actually half the pole's length */
 
-  const static double FORCE_MAG= 10.0;
-  const static double TAU= 0.01;		  //seconds between state updates 
+  static constexpr double FORCE_MAG= 10.0;
+  static constexpr double TAU= 0.01;		  //seconds between state updates 
 
-  const static double one_degree= 0.0174532;	/* 2pi/360 */
-  const static double six_degrees= 0.1047192;
-  const static double twelve_degrees= 0.2094384;
-  const static double fifteen_degrees= 0.2617993;
-  const static double thirty_six_degrees= 0.628329;
-  const static double fifty_degrees= 0.87266;
+  static constexpr double one_degree= 0.0174532;	/* 2pi/360 */
+  static constexpr double six_degrees= 0.1047192;
+  static constexpr double twelve_degrees= 0.2094384;
+  static constexpr double fifteen_degrees= 0.2617993;
+  static constexpr double thirty_six_degrees= 0.628329;
+  static constexpr double fifty_degrees= 0.87266;
 
   double LENGTH_2;
   double MASSPOLE_2;
