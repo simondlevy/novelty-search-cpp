@@ -66,4 +66,4 @@ noveltyset.o: noveltyset.cpp noveltyset.h
 ########################
 
 clean:
-	rm -f rtneat *.o
+	rm -f rtneat *.o *fittest* *txtrtgen* *.dat

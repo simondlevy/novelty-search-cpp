@@ -1,3 +1,6 @@
 rtneat
 *.o
 *.swp
+*fittest*
+*txtrtgen*
+*.dat
